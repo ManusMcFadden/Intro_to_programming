@@ -3,8 +3,7 @@
 list_odd = []
 list_even = []
 list_total = [list_odd,list_even]
-for i in range (1,52):
-    print(i)
+for i in range (1,52)
     if i % 2 == 0:
         list_even.append(i)
     else:
