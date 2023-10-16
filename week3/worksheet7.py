@@ -58,7 +58,3 @@ for i in range(3):
 
 print(list_rounded_to_integer)           
 '''
-
-
-    
-    
