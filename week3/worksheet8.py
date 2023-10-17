@@ -1,5 +1,6 @@
-import random
+'''
 #1
+import random
 for i in range(1,101):
     answer = ""
     word = ""
@@ -34,4 +35,22 @@ for i in range(1,101):
         if answer != word:
                 print("you lose")
                 break
-        
+'''
+'''
+#2
+import random
+answer = random.randint(0,100)
+win = False
+for i in range(5):
+    guess = int(input("guess a number"))
+    if guess > answer:
+        print("lower")
+    elif guess < answer:
+        print("higher")
+    else:
+        print("you win")
+        win = True
+        break
+if win == False:
+    print("you lose")
+'''
