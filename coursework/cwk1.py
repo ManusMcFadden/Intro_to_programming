@@ -4,10 +4,9 @@ Introduction to Programming Coursework 1
 @author: Manus McFadden
 """
 
-
 def valid_puzzle(puzzle: list) -> bool:
-    # delete this line and pass to write your code here
     pass
+
 
 
 def similarity_grouping(data: list) -> list:
