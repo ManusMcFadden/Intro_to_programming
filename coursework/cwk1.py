@@ -4,15 +4,34 @@ Introduction to Programming Coursework 1
 @author: Manus McFadden
 """
 
-def valid_puzzle(puzzle: list) -> bool:
-    pass
 
+def valid_puzzle(puzzle: list) -> bool:
+    valid = True
+    length = len(puzzle[0])
+    for item in puzzle:
+        if len(item) != length:
+            valid = False
+        if isinstance(item, str) is False:
+            valid = False
+    if isinstance(puzzle, list) is False:
+        valid = False
+    return valid
 
 
 def similarity_grouping(data: list) -> list:
-    # delete this line and pass to write your code here
-    pass
-
+    list_output = []
+    if isinstance(data, list) is False:
+        return list_output
+    for item1 in data:
+        found = False
+        for item2 in list_output:
+            if item1 in item2:
+                item2.append(item1)
+                found = True
+        if found is False:
+            list_output.append([item1])
+    return list_output
+#is int 1 same as str1
 
 def highest_count_items(data: str) -> list:
     # delete this line and pass to write your code here
