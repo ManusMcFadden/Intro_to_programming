@@ -3,6 +3,7 @@ def highest_count_items(data: str) -> list:
     list_spaceless = []
     dict_count = {}
     list_letters_added = []
+    list_greatest = []
     list_output = []
     for item in list_input:
         list_spaceless.append(item.strip())
@@ -12,12 +13,17 @@ def highest_count_items(data: str) -> list:
             list_letters_added.append(item)
         else:
             dict_count[item] += 1
-    for key, value in dict_count:
+    for key in dict_count:
         if value > value + 1:
-            highest = key
-
-
-
+            list_greatest = []
+            list_greatest.append(key)
+        elif value == value + 1:
+            list_greatest.append(key)
+    for i in range(len(list_greatest)):
+        list_output.append([])
+        list_output[i].append(list_greatest[i])
+        list_output[i].append(dict_count[i])
+    return list_output
 if __name__ == "__main__":
     data4 = ("3, 13, 7, 9, 3, 3, 5, 7, 12, 13, 11, 13, 8, 7, 5, 14, 15, 3, 9,"
              "7, 5, 9, 14, 3, 8, 2, 5, 5, 8, 14, 11, 11, 12, 8, 5, 3, 3, 10,"
