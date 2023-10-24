@@ -9,7 +9,7 @@ def highest_count_items(data: str) -> list:
         list_spaceless.append(item.strip())
     for item in list_spaceless:
         if item not in list_letters_added:
-            dict_count.update({item: 0})
+            dict_count.update({item: 1})
             list_letters_added.append(item)
         else:
             dict_count[item] += 1

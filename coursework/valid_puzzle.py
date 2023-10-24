@@ -1,4 +1,6 @@
 def valid_puzzle(puzzle: list) -> bool:
+    if len(puzzle) < 2:
+        return False
     valid = True
     length = len(puzzle[0])
     for item in puzzle:
@@ -8,7 +10,7 @@ def valid_puzzle(puzzle: list) -> bool:
             valid = False
     if isinstance(puzzle, list) is False:
         valid = False
-    return valid       
+    return valid  
 if __name__ == "__main__":
     # sample test for task 1.1
     puzzle1 = ['RUNAROUNDDL', 'EDCITOAHCYV', 'ZYUWSWEDZYA', 'AKOTCONVOYV',

@@ -44,7 +44,7 @@ def highest_count_items(data: str) -> list:
         list_spaceless.append(item.strip())
     for item in list_spaceless:
         if item not in list_letters_added:
-            dict_count.update({item: 0})
+            dict_count.update({item: 1})
             list_letters_added.append(item)
         else:
             dict_count[item] += 1
@@ -62,14 +62,40 @@ def highest_count_items(data: str) -> list:
         list_output[i].append(dict_count[list_greatest[i]])
     return list_output
 
+
 def valid_char_in_string(popList: list, charSet: list) -> bool:
-    # delete this line and pass to write your code here
-    pass
+    valid = True
+    if not isinstance(popList, list):
+        return False
+    for item in popList:
+        if not isinstance(item, str):
+            return False
+    if not isinstance(charSet, list):
+        return False
+    for character in charSet:
+        if len(character) > 1:
+            return False
+        if not isinstance(character, str):
+            return False
+    for item in popList:
+        if not isinstance(item, str):
+            return False
+        for character in item:
+            if character not in charSet:
+                valid = False
+    return valid
 
 
 def total_price(unit: int) -> float:
-    # delete this line and pass to write your code here
-    pass
+    unit = int(unit)
+    six_packs = unit // 6
+    single_units = unit % 6
+    added_price = six_packs * 5 + single_units * 1.25
+    if added_price >= 20:
+        total = added_price * 0.9
+    else:
+        total = added_price
+    return total
 
 
 if __name__ == "__main__":

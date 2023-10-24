@@ -1,12 +1,21 @@
 def valid_char_in_string(popList: list, charSet: list) -> bool:
     valid = True
     #check for chars in charset
+    if not isinstance(popList, list):
+        return False
     for item in popList:
         if not isinstance(item, str):
             return False
     if not isinstance(charSet, list):
         return False
+    for character in charSet:
+        if len(character) > 1:
+            return False
+        if not isinstance(character, str):
+            return False
     for item in popList:
+        if not isinstance(item, str):
+            return False
         for character in item:
             if character not in charSet:
                 valid = False

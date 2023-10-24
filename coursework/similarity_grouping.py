@@ -3,6 +3,8 @@ def similarity_grouping(data: list) -> list:
     if isinstance(data, list) is False:
         return list_output
     for item1 in data:
+        #if isinstance(item1, int):
+            #integer = True
         found = False
         for item2 in list_output:
             if item1 in item2:
