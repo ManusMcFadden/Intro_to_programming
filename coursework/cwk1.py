@@ -34,9 +34,33 @@ def similarity_grouping(data: list) -> list:
 #is int 1 same as str1
 
 def highest_count_items(data: str) -> list:
-    # delete this line and pass to write your code here
-    pass
-
+    list_input = data.split(",")
+    list_spaceless = []
+    dict_count = {}
+    list_letters_added = []
+    list_greatest = []
+    list_output = []
+    for item in list_input:
+        list_spaceless.append(item.strip())
+    for item in list_spaceless:
+        if item not in list_letters_added:
+            dict_count.update({item: 0})
+            list_letters_added.append(item)
+        else:
+            dict_count[item] += 1
+    for i, key in enumerate(dict_count):
+        if len(list_greatest) == 0:
+            list_greatest.append(key)
+        elif dict_count[key] > dict_count[list_greatest[0]]:
+            list_greatest = []
+            list_greatest.append(key)
+        elif dict_count[key] == dict_count[list_greatest[0]]:
+            list_greatest.append(key)
+    for i in range(len(list_greatest)):
+        list_output.append([])
+        list_output[i].append(list_greatest[i])
+        list_output[i].append(dict_count[list_greatest[i]])
+    return list_output
 
 def valid_char_in_string(popList: list, charSet: list) -> bool:
     # delete this line and pass to write your code here
