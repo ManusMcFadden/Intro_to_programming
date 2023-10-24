@@ -13,17 +13,18 @@ def highest_count_items(data: str) -> list:
             list_letters_added.append(item)
         else:
             dict_count[item] += 1
-    for key, value in dict_count:
-        if value > next value:
+    for i, key in enumerate(dict_count):
+        if len(list_greatest) == 0:
+            list_greatest.append(key)
+        elif dict_count[key] > dict_count[list_greatest[0]]:
             list_greatest = []
             list_greatest.append(key)
-        elif value == next value:
+        elif dict_count[key] == dict_count[list_greatest[0]]:
             list_greatest.append(key)
     for i in range(len(list_greatest)):
         list_output.append([])
         list_output[i].append(list_greatest[i])
-        list_output[i].append(dict_count[i])
-    print(list_greatest)
+        list_output[i].append(dict_count[list_greatest[i]])
     return list_output
 if __name__ == "__main__":
     data4 = ("3, 13, 7, 9, 3, 3, 5, 7, 12, 13, 11, 13, 8, 7, 5, 14, 15, 3, 9,"
