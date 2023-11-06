@@ -29,6 +29,6 @@ def string_to_morse_code(x):
         outputstring += mcode[c]
         outputstring += " "
 
-    outputstring[:-1]
+    outputstring = outputstring[:-1]
 
     return outputstring
