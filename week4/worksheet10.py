@@ -21,12 +21,14 @@ def string_to_morse_code(x):
 
     if not isinstance(x, str):
         return "ValueError, string expected!"
-    
+
+    x = x.upper()
     outputstring = ""
-    my_list = list(x)
-    for c in my_list:
+
+    for c in x:
         outputstring += mcode[c]
+        outputstring += " "
+
+    outputstring[:-1]
 
     return outputstring
-
-print(string_to_morse_code("HELLO"))
