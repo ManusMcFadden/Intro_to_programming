@@ -1,6 +1,7 @@
 class UniModule:
 
-    def __init__(self, code, name, year, credit, grade = None, PFP = None, discovery = None):
+    def __init__(self, code, name, year, credit,
+                 grade=None, PFP=None, discovery=None):
         self.code = code
         self.name = name
         self.year = year
@@ -33,7 +34,10 @@ class UniModule:
         else:
             Ndisc = "N"
 
-        print("{}:Y{}:{}CR:{}GRD:{}PFP:{}Disc".format(self.code, self.year, self.credit, self.grade, Npfp, Ndisc))
+        print("{}:{}:Y{}:{}CR:{}GRD:{}PFP:{}Disc".format(
+            self.code, self.name, self.year, self.credit,
+              self.grade, Npfp, Ndisc))
+
 
 class Transcript:
 
@@ -42,9 +46,9 @@ class Transcript:
 
     def add_module(self, item):
         if not isinstance(item, UniModule):
-            print("expected item be an instance of UniModule.")
+            raise ValueError("expected item be an instance of UniModule.")
         elif item in self.modules:
-            print("module already exists!")
+            raise ValueError("module already exists!")
         else:
             self.modules.append(item)
 
@@ -52,7 +56,9 @@ class Transcript:
         for item in self.modules:
             item.display_details()
 
-COMP1012 = UniModule("COMP1011", "Intro to Prog.", 1, 10, grade=75, discovery=True)
+
+COMP1012 = UniModule("COMP1011", "Intro to Prog.",
+                     1, 10, grade=75, discovery=True)
 COMP1121 = UniModule("COMP1121", "Databases", 1, 10, PFP=True)
 COMP1211 = UniModule("COMP1211", "Comp. Arch.", 1, 10, grade=80, PFP=True)
 t_student1 = Transcript()
@@ -60,4 +66,3 @@ t_student1.add_module(COMP1012)
 t_student1.add_module(COMP1121)
 t_student1.add_module(COMP1211)
 t_student1.print_transcript()
-        
