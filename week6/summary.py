@@ -5,24 +5,23 @@ def summarise_data(file, col_index):
     min = float('inf')
     sum = 0
     count = 0
-    fileObject = open(file, "r")
-    while True:
-        line = fileObject.readline()
-        if line == "":
-            break
-        else:
-            splitLine = line.split(",")
-            try:
-                int(splitLine[col_index])
-            except:
-                raise ValueError("invalid value in data.")
-            count += 1
-            sum += int(splitLine[col_index])
-            if int(splitLine[col_index]) > max:
-                max = splitLine[col_index]
-            if int(splitLine[col_index]) < min:
-                min = splitLine[col_index]
-    fileObject.close()
+    with open(file, "r") as fileObject:
+        while True:
+            line = fileObject.readline()
+            if line == "":
+                break
+            else:
+                splitLine = line.split(",")
+                try:
+                    int(splitLine[col_index])
+                except:
+                    raise ValueError("invalid value in data.")
+                count += 1
+                sum += int(splitLine[col_index])
+                if int(splitLine[col_index]) > max:
+                    max = splitLine[col_index]
+                if int(splitLine[col_index]) < min:
+                    min = splitLine[col_index]
     mean = round(sum / count, 2)
     outputList = [max, min, sum, count, mean]
     return outputList
